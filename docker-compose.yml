@@ -11,7 +11,7 @@ services:
       - '3309:3306'
     volumes:
       - database-name-development-mysql_service:/var/lib/mysql
-      - ./mysql-init:/docker-entrypoint-initdb.d
+      - ./db/mysql-init:/docker-entrypoint-initdb.d
     hostname: mysql_service
   web:
     build:
