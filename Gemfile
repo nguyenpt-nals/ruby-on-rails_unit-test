@@ -60,6 +60,9 @@ group :development, :test do
 
   # Unit test
   gem 'rspec-rails', '~> 7.0.0'
+
+  # Factory Bot
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -78,4 +81,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "factory_bot", "~> 6.5"
+  gem "faker"
+  gem "simplecov"
 end
