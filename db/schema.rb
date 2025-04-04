@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_26_162746) do
+ActiveRecord::Schema[7.1].define(version: 2025_04_03_135748) do
+  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "type", null: false
+    t.integer "amount", null: false
+    t.boolean "flag", default: false
+    t.integer "status", default: 0, null: false
+    t.integer "priority", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -20,4 +32,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_26_162746) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "orders", "users"
 end
